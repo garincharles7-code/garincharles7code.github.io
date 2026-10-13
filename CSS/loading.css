@@ -1,0 +1,51 @@
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgb(10, 10, 20), rgb(20, 20, 60), rgb(10, 10, 10));
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  z-index: 9999;
+  
+  transition: opacity 0.3s ease;
+}
+
+.loader-logo {
+    height: auto;
+    width: 20%;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    
+    object-fit: contain;
+    
+    animation: opacityLoad 2s linear infinite;
+}
+
+.loader-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes opacityLoad {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@media (min-width: 1024px) {
+    .loader-logo {
+        height: 20%;
+        width: auto;
+    }
+}

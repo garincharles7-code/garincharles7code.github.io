@@ -1,0 +1,313 @@
+@keyframes pop {
+  0% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/*@keyframes first-sec-fade {
+  to { opacity: 0; }
+}
+
+@keyframes vids-fade {
+  0%   { opacity: 0; } 
+  50%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes second-sec-fade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}*/
+
+body {
+    margin: 0;
+    background-color: black;
+    background: linear-gradient(rgb(20, 20, 40), rgb(30, 30, 60), rgb(10, 10, 10));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.first-sec {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    
+    animation-name: first-sec-fade;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root block);
+    
+    animation-range: 0px 1000px; 
+}
+
+.first-sec-bottom {
+    display: flex;
+    margin-top: auto;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30%;
+}
+
+.splash {
+    margin: auto;
+    height: 35vh;
+    width: 90vw;
+    object-fit: contain;
+    object-position: center;
+    animation: pop 2s ease;
+}
+
+.bigby {
+    position: absolute;
+    z-index: -1;
+    justify-content: right;
+    height: 100vh;
+    object-fit: cover;
+    animation: pop 0.8s ease;
+}
+
+.dev {
+    color: white;
+    text-align: center;
+    font-family: sans-serif;
+    text-shadow: 0px 0px 40px rgb(180, 150, 255);
+    margin-bottom: 40px;
+    font-size: clamp(10px, 4vh, 30px);
+}
+
+.chevron {
+    color: white;
+    text-align: center;
+    transform: rotate(90deg);
+    font-size: clamp(20px, 4vh, 30px);
+}
+
+h3 {
+  color: rgb(190, 150, 200);
+  font-family: sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: clamp(10px, 4vh, 22px)
+}
+
+.editions {
+    padding: 15px 50px 15px;
+    font-size: clamp(10px, 2vh, 20px);
+    border-radius: 20px;
+    font-weight: 1000;
+    text-decoration: none;
+    font-family: sans-serif;
+    display: flex;
+    margin: auto;
+    border: none;
+    
+    background-color: violet;
+    color: rgb(50, 50, 80);
+}
+
+.editions:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.intro-video {
+    width: calc(100% - 20px);
+    margin: 1200px 10px 0px;
+    object-fit: cover;
+    display: block;
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    object-fit: cover;
+    z-index: -2;
+
+    opacity: 0;
+    background-color: black;
+    
+    animation-name: vids-fade;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root block);
+    
+    animation-range: 1300px 3400px;
+}
+
+.second-sec {
+    background-color: transparent;
+    height: auto;
+    margin-top: 1000px;
+    padding: 50px 50px 50px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    
+    animation-name: second-sec-fade;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root block);
+    
+    animation-range: 2400px 2800px;
+}
+
+.second-sec h1 {
+    color: white;
+    font-family: sans-serif;
+    font-size: clamp(30px, 6vmin, 60px);
+    text-shadow: 0px 0px 10px rgb(180, 150, 255);
+    -webkit-text-stroke: 1px rgba(120, 148, 255, 0.5);
+}
+.second-sec p {
+  color: rgb(225, 231, 255);
+  font-size: clamp(20px, 5vmin, 35px);
+  font-family: sans-serif;
+  font-weight: 1000;
+  text-shadow: 0px 0px 10px rgb(180, 150, 255);
+  -webkit-text-stroke: 1px rgba(120, 148, 255, 0.5);
+}
+
+.conContainer {
+    display: grid;
+    grid: 1fr;
+    /*backdrop-filter: blur(40px);*/
+    height: auto;
+    width: 100%;
+}
+
+.charCard, .artCard {
+    background-color: violet;
+    height: 500px;
+    width: calc(100% - 50px);
+    
+    margin: 25px 25px 0px;
+    border-radius: 40px;
+    
+    z-index: 1;
+}
+
+.charCard {
+    background-image: linear-gradient(to right, rgba(50, 50, 100, 1), transparent), url("../Pics/chars.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.artCard {
+    background-image: linear-gradient(to left, rgba(50, 50, 100, 1), transparent), url("../Pics/artwork.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.charCard h1 {
+    color: white;
+    font-family: sans-serif;
+    font-size: clamp(30px, 5vmin, 50px);
+    margin: 100px 20px 0px;
+    text-shadow: 0px 0px 5px rgb(200, 150, 255);
+}
+
+.charCard a {
+    background-color: violet;
+    color: black;
+    font-family: sans-serif;
+    font-size: clamp(15px, 4vmin, 20px);
+    text-decoration: none;
+    display: inline-block;
+    margin: 40px 20px 0px;
+    border: none;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.artCard a {
+    background-color: violet;
+    color: black;
+    font-family: sans-serif;
+    font-size: clamp(15px, 3vmin, 20px);
+    text-decoration: none;
+    display: inline-block;
+    margin: 40px 20px 0px;
+    border: none;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.charCard a:hover {
+    opacity: 0.7;
+}
+
+.artCard a:hover {
+    opacity: 0.7;
+}
+
+.charCard button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.artCard h1 {
+    text-align: right;
+    color: white;
+    font-family: sans-serif;
+    font-size: clamp(30px, 5vmin, 50px);
+    margin: 100px 20px 0px;
+    text-shadow: 0px 0px 5px rgb(200, 150, 255);
+}
+
+@media (min-width: 1024px) {
+    .splash {
+        height: 50vh;
+        width: 90vw;
+    }
+    .intro-video {
+        width: calc(100% - 300px);
+        margin: 1200px auto 0px;
+        object-fit: cover;
+        display: block;
+    }
+    
+    .second-sec {
+        padding: 200px 200px 100px;
+    }
+    
+    .charCard h1, .artCard h1 {
+        margin: 100px 40px 0px;
+    }
+    
+    .charCard a, .artCard a {
+        margin: 40px 40px 0px;
+    }
+    
+    .charCard, .artCard {
+        background-color: violet;
+        height: 500px;
+        width: calc(100% - 300px);
+        
+        margin: 25px 150px 25px;
+        border-radius: 40px;
+    }
+}

@@ -1,0 +1,120 @@
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    background-image: linear-gradient(rgb(20, 20, 40), rgb(30, 30, 60), rgb(10, 10, 10));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.Title {
+    color: rgb(200, 200, 255);
+    font-family: sans-serif;
+    margin: 120px 35px 0px;
+    font-size: clamp(20px, 5vmin, 30px);
+}
+
+.Container {
+    height: auto;
+    width: calc(100% - 50px);
+    display: grid;
+    row-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 25px 25px 0px;
+    
+    animation: pop 1.5s ease;
+    z-index: -1;
+}
+
+.gallery-item {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-item h2 {
+    font-size: 15px;
+    color: rgb(230,200,255);
+}
+
+.gallery-item img {
+    height: 150px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 1px solid rgb(100, 100, 150);
+    cursor: pointer;
+    
+    transition: transform 0.25s ease;
+}
+
+.gallery-item img:hover {
+    border: 1px solid rgb(200, 200, 255);
+    transform: scale(0.97);
+}
+
+.gallery-item.is-zoomed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(10, 10, 20, 0.9);
+    z-index: 9800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.gallery-item.is-zoomed img {
+    max-width: 90%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.gallery-item.is-zoomed img:hover {
+    transform: scale(1);
+    border: 1px solid rgb(100, 100, 150);
+    cursor: default;
+}
+
+.Mask {
+    position: fixed;
+    background-image: linear-gradient(rgba(10, 10, 20, 0.8), transparent);
+    width: 100%;
+    height: 150px;
+    z-index: 9990;
+    top: 0;
+    left: 0;
+    
+    pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+    .Title {
+        margin: 100px 160px 0px;
+    }
+    .Container {
+        margin: 25px 150px 0px;
+        width: calc(100% - 300px);
+    }
+    .gallery-item img {
+        height: 250px;
+    }
+    .gallery-item h2 {
+        font-size: 20px;
+    }
+}

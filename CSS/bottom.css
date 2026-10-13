@@ -1,0 +1,39 @@
+.bottom {
+    height: auto;
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+.bottom img {
+    display: block;
+    margin: auto;
+    height: 20px;
+}
+
+.bottom p {
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-size: clamp(10px, 2vmin, 30px);
+}
+
+.bottom button {
+    background-color: transparent;
+    font-size: clamp(10px, 2vmin, 12.5px);
+    color: white;
+    border: none;
+}
+
+.bottom button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+    .bottom img {
+        height: 25px;
+    }
+}
